@@ -7,8 +7,8 @@
 ![Dependencies](https://img.shields.io/badge/runtime%20deps-requests%20only-lightgrey)
 ![Tests](https://img.shields.io/badge/tests-21%20passing-brightgreen)
 
-Argus crawls a web application, finds every place it accepts input — query
-parameters and form fields — and probes each one for the bugs that show up on
+Argus crawls a web application, finds every place it accepts input query
+parameters and form fields and probes each one for the bugs that show up on
 almost every first-pass assessment: SQL injection, cross-site scripting, path
 traversal, OS command injection, open redirects, missing CSRF tokens, weak
 security headers and files that shouldn't be reachable from the web root.
@@ -72,13 +72,13 @@ To make it easy to try safely, the repo ships a deliberately vulnerable demo app
 ```bash
 git clone https://github.com/tejasva/argus.git
 cd argus
-pip install -e .            # installs the `argus` command
+pip install -e .            
 ```
 
 Or just install the one dependency and run it in place — no packaging required:
 
 ```bash
-pip install requests        # colorama too, on Windows, for colour
+pip install requests       
 python -m argus --help
 ```
 
@@ -184,10 +184,10 @@ testable on its own:
 ```
         discovery              decision                presentation
    ┌────────────────┐    ┌────────────────────┐    ┌──────────────────┐
-   │ crawler.py     │ →  │ checks/*.py         │ →  │ reporter.py      │
-   │ (links, forms) │    │ (one class each)    │    │ (terminal/JSON/  │
+   │ crawler.py     │ →  │ checks/*.py        │ →  │ reporter.py      │
+   │ (links, forms) │    │ (one class each)   │    │ (terminal/JSON/  │
    └────────────────┘    └────────────────────┘    │  HTML)           │
-          │                       ▲                 └──────────────────┘
+          │                       ▲                └──────────────────┘
           ▼                       │
    ┌────────────────┐    ┌────────────────────┐
    │ scanner.py     │ →  │ http_client.py     │
@@ -241,7 +241,7 @@ tests/                offline unit tests (no network)
 ```
 
 Adding a new check is a two-line change to `checks/__init__.py`: import the
-class, add it to the registry. The CLI's `--checks` list, the engine and the
+class, add it to the registry. The CLI's `--checks` list, the engine, and the
 help text all read from that one source of truth.
 
 ---

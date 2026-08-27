@@ -17,7 +17,7 @@ It's named after **Argus Panoptes**, the hundred-eyed giant of Greek myth who
 never slept. The whole point of a scanner is to watch every input at once.
 
 > I started this as a class exercise that just checked "does this page have an
-> input box?" and called everything vulnerable. That bothered me — it doesn't
+> input box?" and called everything vulnerable. That bothered me;  it doesn't
 > *test* anything. So I rebuilt it into something that sends real payloads and
 > reasons about the responses. This is that rewrite.
 
@@ -72,10 +72,10 @@ To make it easy to try safely, the repo ships a deliberately vulnerable demo app
 ```bash
 git clone https://github.com/tejasva/argus.git
 cd argus
-pip install -e .            
+pip install -e            
 ```
 
-Or just install the one dependency and run it in place — no packaging required:
+Or install the one dependency and run it in place no packaging required:
 
 ```bash
 pip install requests       
@@ -211,7 +211,7 @@ A few decisions worth calling out:
   proportionally — ruling out a coincidentally slow endpoint. The sleep only
   runs when the target is actually vulnerable, so clean parameters stay fast.
 - **Soft-404 baselines.** Before probing for sensitive files, Argus fetches a
-  path it knows doesn't exist. Sites that answer `200 OK` for everything would
+  path it knows doesn't exist. ** Sites that answer `200 OK` for everything would
   otherwise produce a wall of false positives; anything resembling that baseline
   is discarded.
 - **One rate limiter for all threads.** The delay is enforced globally at the
@@ -224,7 +224,7 @@ A few decisions worth calling out:
 
 ```
 argus/
-  cli.py              argparse front-end, exit codes
+  cli.py:              argparse front-end, exit codes
   scanner.py          engine: discovery, fan-out, aggregation
   crawler.py          same-origin crawler + stdlib HTML parsing
   http_client.py      throttled, retrying, thread-safe requests wrapper

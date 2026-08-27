@@ -1,4 +1,4 @@
-# Argus
+# ARGUS
 
 **A lightweight web application vulnerability scanner for authorised testing.**
 
@@ -294,8 +294,3 @@ I'd rather be upfront than oversell this:
 - [ ] A small signature-tuning harness to measure false-positive rate
 
 ---
-
-## License
-
-MIT — see [LICENSE](LICENSE). Built by Tejasva as a learning project. If you use
-it or build on it, I'd love to hear about it.

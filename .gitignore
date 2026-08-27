@@ -1,0 +1,33 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Packaging / build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Scan output written by Argus
+report.json
+report.html
+*.report.json
+*.report.html
+
+# Editor / OS cruft
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

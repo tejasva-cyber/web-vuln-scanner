@@ -1,0 +1,6 @@
+# Runtime dependencies. Argus deliberately keeps this list tiny.
+requests>=2.25
+
+# Optional: only used to enable ANSI colours on legacy Windows consoles.
+# Modern terminals (Windows Terminal, macOS, Linux) don't need it.
+colorama>=0.4.6; platform_system == "Windows"

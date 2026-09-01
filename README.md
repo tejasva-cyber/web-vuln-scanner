@@ -70,15 +70,14 @@ To make it easy to try safely, the repo ships a deliberately vulnerable demo app
 ## Install
 
 ```bash
-git clone https://github.com/tejasva/argus.git
-cd argus
-pip install -e            
+git clone https://github.com/tejasva-cyber/web-vuln-scanner.git
+cd web-vuln-scanner           
 ```
 
-Or install the one dependency and run it in place no packaging required:
+Or install the one dependency and run it in place; no packaging required:
 
 ```bash
-pip install requests       
+pip install -r requirements.txt     
 python -m argus --help
 ```
 

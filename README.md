@@ -71,15 +71,13 @@ To make it easy to try safely, the repo ships a deliberately vulnerable demo app
 
 ```bash
 git clone https://github.com/tejasva-cyber/web-vuln-scanner.git
-cd web-vuln-scanner           
+cd web-vuln-scanner
+python -m pip install -e .
 ```
 
-Or install the one dependency and run it in place; no packaging required:
-
-```bash
-pip install -r requirements.txt     
-python -m argus --help
-```
+This installs Argus itself and its runtime dependencies, including the `argus`
+console command. You can also use `python -m argus` if you prefer not to rely on
+the console-script being on your PATH.
 
 Requires **Python 3.9+**.
 
@@ -101,16 +99,16 @@ Other common invocations:
 
 ```bash
 # a single URL with parameters, only two checks
-argus "http://127.0.0.1:8973/search?q=test" --checks sqli,xss
+python -m argus "http://127.0.0.1:8973/search?q=test" --checks sqli,xss
 
 # see the command-injection check fire (this endpoint isn't linked, so scan it directly)
-argus "http://127.0.0.1:8973/ping?host=localhost" --checks cmdi
+python -m argus "http://127.0.0.1:8973/ping?host=localhost" --checks cmdi
 
 # authenticated scan behind a session cookie, through Burp
-argus http://target.tld/ --crawl -b "session=..." --proxy http://127.0.0.1:8080
+python -m argus http://target.tld/ --crawl -b "session=..." --proxy http://127.0.0.1:8080
 
 # write reports and be polite about it
-argus http://target.tld/ --crawl --delay 0.3 --json report.json --html report.html
+python -m argus http://target.tld/ --crawl --delay 0.3 --json report.json --html report.html
 ```
 
 ---
@@ -248,8 +246,8 @@ help text all read from that one source of truth.
 ## Testing
 
 ```bash
-pip install pytest
-pytest
+python -m pip install -e ".[dev]"
+python -m pytest
 ```
 
 The suite is fully offline — signatures are matched directly, and the injection

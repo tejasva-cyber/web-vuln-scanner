@@ -22,9 +22,9 @@ from argus.config import ScanConfig
 
 
 class HttpClient:
-    def __init__(self, config: ScanConfig):
-        self._cfg = config
-        self._session = self._build_session(config)
+def __init__(self, config: ScanConfig):
+    self._cfg = config
+    self._local = threading.local()
 
         # Rate limiting shared across worker threads. The lock is held *through*
         # the sleep so the configured delay is the spacing between requests

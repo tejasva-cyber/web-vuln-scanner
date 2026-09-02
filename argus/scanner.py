@@ -93,10 +93,11 @@ class ScanEngine:
             parsed = urlparse(url)
             if not parsed.query:
                 continue
-            params = dict(parse_qsl(parsed.query, keep_blank_values=True))
-            base_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, "", "", ""))
-            for name in params:
-                add("GET", base_url, name, params, "query")
+          params = parse_qsl(parsed.query, keep_blank_values=True)
+          base_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, "", "", ""))
+
+for name, _value in params:
+    add("GET", base_url, name, params, "query")
 
         # Form fields, GET or POST.
         for form in forms:
